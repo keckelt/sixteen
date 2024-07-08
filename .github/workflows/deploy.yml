@@ -25,9 +25,11 @@ jobs:
         env:
           CI: true
 
-      - name: Deploy to GitHub Pages
+      -
+        name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          build_dir: dist
+          target_branch: gh-pages
+          build_dir: public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
