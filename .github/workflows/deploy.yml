@@ -1,5 +1,8 @@
 name: Node Build+Deploy
 
+permissions: 
+  contents: write
+
 on:
   push:
     branches:
@@ -29,11 +32,10 @@ jobs:
         run: |
           ls -al dist/
 
-      -
-        name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
-          build_dir: public
+          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
