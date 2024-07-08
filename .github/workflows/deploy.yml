@@ -25,6 +25,10 @@ jobs:
         env:
           CI: true
 
+      - name: Check Files
+        run: |
+          ls -al dist/
+
       -
         name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
